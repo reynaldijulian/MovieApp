@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:movie/model/movie_model.dart';
 import 'package:movie/nav_drawer.dart';
+import 'package:movie/pages/find_page.dart';
 import 'package:movie/pages/movie_detail_page.dart';
 import 'package:movie/provider/api_provider.dart';
 
@@ -9,6 +10,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Movies App',
       theme: ThemeData(
         primarySwatch: Colors.indigo,
@@ -43,6 +45,17 @@ class _HomeState extends State<Home> {
         title: Text('Home'),
       ),
       drawer: DrawerWidget(),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => FindPage()));
+        },
+        child: Icon(
+          Icons.search,
+        ),
+        backgroundColor: Colors.blueAccent,
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.miniEndTop,
       body: ListView(
         children: [
           Container(
@@ -93,6 +106,9 @@ class _HomeState extends State<Home> {
             ),
           ),
           upcoming(),
+          SizedBox(
+            height: 30,
+          ),
         ],
       ),
     );

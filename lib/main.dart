@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie/nav_drawer.dart';
 import 'package:movie/pages/about_page.dart';
+import 'package:movie/pages/find_page.dart';
 import 'package:movie/pages/home_page.dart';
 import 'package:movie/pages/now_playing_page.dart';
 import 'package:movie/pages/top_rated_page.dart';
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
         '/upcoming-page': (context) => UpcomingPage(),
         '/about-page': (context) => AboutPage(),
         '/nav': (context) => DrawerWidget(),
+        '/find': (context) => FindPage(),
       },
     );
   }
