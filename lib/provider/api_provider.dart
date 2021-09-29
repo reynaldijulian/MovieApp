@@ -46,7 +46,7 @@ class ApiProvider {
     }
   }
 
-  Future<MovieModel> getMovieModel() async {
+  Future<MovieModel> getPopular() async {
     //  String url = '$baseUrl/movie/popular?api_key=$apiKey';
     //  print(url);
     Response response =
