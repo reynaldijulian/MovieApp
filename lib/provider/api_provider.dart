@@ -7,6 +7,19 @@ class ApiProvider {
   String baseUrl = 'https://api.themoviedb.org/3';
   Client client = Client();
 
+  Future<MovieModel> getMovies() async {
+    //  String url = '$baseUrl/movie/now_playing?api_key=$apiKey';
+    //  print(url);
+    Response response =
+        await client.get('$baseUrl/search/movie?api_key=$apiKey');
+
+    if (response.statusCode == 200) {
+      return MovieModel.fromJson(jsonDecode(response.body));
+    } else {
+      throw Exception(response.statusCode);
+    }
+  }
+
   Future<MovieModel> getNowPlaying() async {
     //  String url = '$baseUrl/movie/now_playing?api_key=$apiKey';
     //  print(url);

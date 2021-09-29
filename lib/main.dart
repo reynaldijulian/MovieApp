@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
         '/upcoming-page': (context) => UpcomingPage(),
         '/about-page': (context) => AboutPage(),
         '/nav': (context) => DrawerWidget(),
-        '/find': (context) => FindPage(),
+        //'/find': (context) => FindPage(),
       },
     );
   }

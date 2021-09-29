@@ -47,8 +47,8 @@ class _HomeState extends State<Home> {
       drawer: DrawerWidget(),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => FindPage()));
+          //Navigator.of(context)
+          //.push(MaterialPageRoute(builder: (context) => FindPage()));
         },
         child: Icon(
           Icons.search,
