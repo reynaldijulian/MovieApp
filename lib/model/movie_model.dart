@@ -1,10 +1,10 @@
-class PopularMovies {
+class MovieModel {
   int page;
   int totalResults;
   int totalPages;
   List<Results> results;
-  PopularMovies({this.page, this.totalResults, this.totalPages, this.results});
-  PopularMovies.fromJson(Map<String, dynamic> json) {
+  MovieModel({this.page, this.totalResults, this.totalPages, this.results});
+  MovieModel.fromJson(Map<String, dynamic> json) {
     page = json['page'];
     totalResults = json['total_results'];
     totalPages = json['total_pages'];

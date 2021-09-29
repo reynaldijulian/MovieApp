@@ -1,7 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:movie/model/popular_movies.dart';
+import 'package:movie/model/movie_model.dart';
 import 'package:movie/nav_drawer.dart';
+import 'package:movie/pages/movie_detail_page.dart';
 import 'package:movie/provider/api_provider.dart';
 
 class TopRatedPage extends StatelessWidget {
@@ -24,11 +25,11 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   ApiProvider apiProvider = ApiProvider();
-  Future<PopularMovies> popularMovies;
+  Future<MovieModel> movieModel;
   String imageBaseUrl = 'https://image.tmdb.org/t/p/w500';
   @override
   void initState() {
-    popularMovies = apiProvider.getPopularMovies();
+    movieModel = apiProvider.getTopRated();
     super.initState();
   }
 
@@ -40,7 +41,7 @@ class _HomeState extends State<Home> {
       ),
       drawer: DrawerWidget(),
       body: FutureBuilder(
-        future: popularMovies,
+        future: movieModel,
         builder: (BuildContext context, AsyncSnapshot snapshot) {
           if (snapshot.hasData) {
             print("Has Data: ${snapshot.hasData}");
@@ -147,22 +148,6 @@ class _HomeState extends State<Home> {
             ),
           ),
         ),
-      ),
-    );
-  }
-}
-
-class MovieDetail extends StatelessWidget {
-  final Results movie;
-  const MovieDetail({Key key, this.movie}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(movie.title),
-      ),
-      body: Container(
-        child: Text(movie.overview),
       ),
     );
   }
